@@ -2,7 +2,7 @@
  * Created by erupare on 03/07/2017.
  */
 
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { EventService } from "./shared/index";
 
@@ -17,10 +17,28 @@ import { EventService } from "./shared/index";
         .error ::ms-input-placeholder { color: #999; }
     `]
 })
-export class CreateEventComponent {
+export class CreateEventComponent implements OnInit{
     isDirty:boolean = true
+    event:any
+
     constructor(private router: Router, private eventService:EventService) {
 
+    }
+
+    ngOnInit(){
+        this.event = {
+            name: 'Ng Spectacular',
+            date: '8/8/2028',
+            time: '10am',
+            price: 799.99,
+            location: {
+                address: '456 Happy St',
+                city: 'Felicity',
+                country: 'Angularistan'
+            },
+            onlineUrl: 'http://ngSpectacular.com',
+            imageUrl: 'http://ngSpectacular.com/logo.png',
+        }
     }
 
     saveEvent(formValues) {
