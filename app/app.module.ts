@@ -20,6 +20,7 @@ import { NavBarComponent } from './nav/navbar.component'
 import { ToastrService }  from './common/toastr.service'
 import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
+import { AuthService } from './user/auth.service'
 
 
 // import { EventsAppComponent } from './events-app.component'
@@ -56,6 +57,7 @@ import { Error404Component } from './errors/404.component'
         ToastrService,
         EventRouteActivator,
         EventListResolver,
+        AuthService,
         { // We use this long method for Functions and shorthand above for Services
             provide: 'canDeactivateCreateEvent',
             useValue: checkDirtyState
