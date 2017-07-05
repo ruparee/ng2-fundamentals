@@ -1,27 +1,28 @@
 /**
  * Created by erupare on 02/07/2017.
  */
-import  { Injectable } from '@angular/core'
+import  {OpaqueToken, InjectionToken} from '@angular/core'
 
-declare let toastr:any
+/**
+ OpaqueToken Deprecation Notes
+ since v4.0.0 because it does not support type information, use InjectionToken<?> instead.
+ https://angular.io/api/core/OpaqueToken
+ **/
+// export let TOASTR_TOKEN = new OpaqueToken('toastr');
 
-@Injectable()
-export class ToastrService {
-    success(message: string, title?: string) {
-        toastr.success(message, title)
-    }
+export let TOASTR_TOKEN = new InjectionToken<String>('toastr');
 
-    info(message: string, title?: string) {
-        toastr.info(message, title)
-    }
-
-    warning(message: string, title?: string) {
-        toastr.warning(message, title)
-    }
-
-    error(message: string, title?: string) {
-        toastr.error(message, title)
-    }
+export interface Toastr {
+    success (msg:string, title?:string):void;
+    info (msg:string, title?:string):void;
+    warning (msg:string, title?:string):void;
+    error (msg:string, title?:string):void;
 }
+
+
+
+
+
+
 
 

@@ -30,7 +30,7 @@ export class SessionListComponent implements OnChanges {
     }
 
     filterSessions(filter) {
-        console.log("filter : " + filter);
+        // console.log("filter : " + filter);
 
         if (filter === 'all') {
 
