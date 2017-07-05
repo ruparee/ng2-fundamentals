@@ -1,10 +1,10 @@
 /**
  * Created by erupare on 18/06/2017.
  */
-import { NgModule } from '@angular/core'
-import { BrowserModule } from '@angular/platform-browser'
-import { RouterModule }  from '@angular/router'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import {NgModule, LOCALE_ID} from '@angular/core'
+import {BrowserModule} from '@angular/platform-browser'
+import {RouterModule}  from '@angular/router'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 import {
     EventsListComponent,
@@ -17,29 +17,13 @@ import {
     CreateSessionComponent,
     SessionListComponent
 } from './events/index'
-import { EventsAppComponent } from './events-app.component'
-import { NavBarComponent } from './nav/navbar.component'
-import { ToastrService }  from './common/toastr.service'
+import {EventsAppComponent} from './events-app.component'
+import {NavBarComponent} from './nav/navbar.component'
+import {ToastrService}  from './common/toastr.service'
 import {CollapsibleWellComponent} from './common/collapsible-well.component'
-import { appRoutes } from './routes'
-import { Error404Component } from './errors/404.component'
-import { AuthService } from './user/auth.service'
-
-
-// import { EventsAppComponent } from './events-app.component'
-// import { EventsListComponent } from './events/events-list.component'
-// import { EventThumbnailComponent } from
-//     './events/event-thumbnail.component'
-// import  { NavBarComponent } from './nav/navbar.component'
-// import { EventService } from './events/shared/event.service'
-// import { ToastrService }  from './common/toastr.service'
-// import { EventDetailsComponent } from './events/event-details/event-details.component'
-// import { appRoutes } from './routes'
-// import { CreateEventComponent } from './events/create-event.component'
-// import { Error404Component } from './errors/404.component'
-// import { EventRouteActivator } from './events/event-details/event-route-activator.service'
-// import { EventListResolver } from './events/events-list-resolver.service'
-
+import {appRoutes} from './routes'
+import {Error404Component} from './errors/404.component'
+import {AuthService} from './user/auth.service'
 
 
 @NgModule({
@@ -49,14 +33,14 @@ import { AuthService } from './user/auth.service'
         ReactiveFormsModule,
         RouterModule.forRoot(appRoutes)
     ],
-    declarations: [EventsAppComponent, 
-                   EventsListComponent,
-                   EventThumbnailComponent,
-                   EventDetailsComponent,
-                   NavBarComponent,
-                   CreateEventComponent,
-                   Error404Component,
-                   CreateSessionComponent,
+    declarations: [EventsAppComponent,
+        EventsListComponent,
+        EventThumbnailComponent,
+        EventDetailsComponent,
+        NavBarComponent,
+        CreateEventComponent,
+        Error404Component,
+        CreateSessionComponent,
         SessionListComponent,
         CollapsibleWellComponent
     ],
@@ -66,6 +50,7 @@ import { AuthService } from './user/auth.service'
         EventRouteActivator,
         EventListResolver,
         AuthService,
+        {provide: LOCALE_ID, useValue: "en-GB"}, //replace "en-US" with your locale
         { // We use this long method for Functions and shorthand above for Services
             provide: 'canDeactivateCreateEvent',
             useValue: checkDirtyState
@@ -73,11 +58,11 @@ import { AuthService } from './user/auth.service'
     ],
     bootstrap: [EventsAppComponent]
 })
-export class AppModule{
+export class AppModule {
 
 }
 
-function checkDirtyState (component:CreateEventComponent) {
+function checkDirtyState(component:CreateEventComponent) {
     if (component.isDirty)
         return window.confirm('You have not saved this event, do you really want to cancel?')
     return true
