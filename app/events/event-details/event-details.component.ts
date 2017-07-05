@@ -35,8 +35,6 @@ export class EventDetailsComponent  implements OnInit{
         // console.log("this.event : " + this.eventService.getEvent(+this.route.snapshot.params['id']))
         //
         // console.log("this.event hardcoded : " + this.eventService.getEvent(1))
-
-
     }
 
     addSession() {
