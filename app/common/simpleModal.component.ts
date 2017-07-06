@@ -7,7 +7,7 @@ import {Component, Input} from '@angular/core'
 @Component({
     selector: 'simple-modal',
     template: `
-    <div id="simple=modal" class="modal fade" tabindex="-1">
+    <div id="simple-modal" class="modal fade" tabindex="-1">
        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -26,7 +26,7 @@ import {Component, Input} from '@angular/core'
     </div>
     `,
     styles: [`
-        .modal-body { heigt: 250px; overflow-y: scroll; }
+        .modal-body { height: 250px; overflow-y: scroll; }
     `]
 })
 
