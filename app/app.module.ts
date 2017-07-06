@@ -16,7 +16,8 @@ import {
     EventListResolver,
     CreateSessionComponent,
     SessionListComponent,
-    UpvoteComponent
+    UpvoteComponent,
+    VoterService,
     DurationPipe
 } from './events/index'
 import {EventsAppComponent} from './events-app.component'
@@ -67,6 +68,7 @@ declare let jQuery:Object;
         EventRouteActivator,
         EventListResolver,
         AuthService,
+        VoterService,
         {provide: LOCALE_ID, useValue: "en-GB"}, //replace "en-US" with your locale
         { // We use this long method for Functions and shorthand above for Services
             provide: 'canDeactivateCreateEvent',
