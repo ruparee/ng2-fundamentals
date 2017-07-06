@@ -24,7 +24,8 @@ import {
     TOASTR_TOKEN,
     Toastr,
     JQ_TOKEN,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    SimpleModalComponent
 }  from './common/index'
 import {appRoutes} from './routes'
 import {Error404Component} from './errors/404.component'
@@ -51,11 +52,13 @@ declare let jQuery:Object;
         CreateSessionComponent,
         SessionListComponent,
         CollapsibleWellComponent,
+        SimpleModalComponent,
         DurationPipe
     ],
     providers: [
         EventService,
         {provide: TOASTR_TOKEN, useValue: toastr},
+        {provide: JQ_TOKEN, useValue: jQuery},
         EventRouteActivator,
         EventListResolver,
         AuthService,
