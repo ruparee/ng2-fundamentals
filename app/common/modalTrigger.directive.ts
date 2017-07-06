@@ -2,7 +2,7 @@
  * Created by erupare on 06/07/2017.
  */
 
-import {Directive, OnInit, Inject, ElementRef} from '@angular/core'
+import {Directive, OnInit, Inject, ElementRef, Input} from '@angular/core'
 import {JQ_TOKEN} from "./jQuery.service";
 
 
@@ -13,6 +13,8 @@ import {JQ_TOKEN} from "./jQuery.service";
 export class ModalTriggerDirective implements OnInit {
 
     private el:HTMLElement;
+    @Input('modal-trigger')
+    modalId:string;
 
     constructor(ref:ElementRef, @Inject(JQ_TOKEN)
     private $:any) {
@@ -21,7 +23,7 @@ export class ModalTriggerDirective implements OnInit {
 
     ngOnInit() {
         this.el.addEventListener('click', e => {
-            this.$('#simple-modal').modal({})
+            this.$(`#${this.modalId}`).modal({})
         })
     }
 
