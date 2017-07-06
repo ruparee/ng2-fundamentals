@@ -16,6 +16,7 @@ import {
     EventListResolver,
     CreateSessionComponent,
     SessionListComponent,
+    UpvoteComponent
     DurationPipe
 } from './events/index'
 import {EventsAppComponent} from './events-app.component'
@@ -31,6 +32,7 @@ import {
 import {appRoutes} from './routes'
 import {Error404Component} from './errors/404.component'
 import {AuthService} from './user/auth.service'
+import {UpvoteComponent} from "./events/event-details/upvote.component";
 
 // declare let toastr:any
 declare let toastr:Toastr;
@@ -55,6 +57,7 @@ declare let jQuery:Object;
         CollapsibleWellComponent,
         SimpleModalComponent,
         ModalTriggerDirective,
+        UpvoteComponent,
         DurationPipe
     ],
     providers: [
