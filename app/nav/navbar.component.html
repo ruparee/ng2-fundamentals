@@ -1,7 +1,7 @@
 <div class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" >ngEvents</a>
+            <a class="navbar-brand">ngEvents</a>
         </div>
 
         <div class="collapse navbar-collapse">
@@ -36,7 +36,7 @@
                     <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control"
                            placeholder="Search Sessions">
                 </div>
-                <button class="btn btn-default" >
+                <button class="btn btn-default" modal-trigger>
                     Search
                 </button>
             </form>
@@ -44,7 +44,7 @@
     </div>
 </div>
 
-<simple-modal> title="Matching Sessions" l>
+<simple-modal title="Matching Sessions">
     <div class="list-group">
         <a class="list-group-item" *ngFor="let session of foundSessions"
            [routerLink]="['/events','session.eventId']">

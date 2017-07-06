@@ -10,7 +10,7 @@ import  {OpaqueToken, InjectionToken} from '@angular/core'
  https://angular.io/api/core/OpaqueToken
  **/
 
-// export let JQ_TOKEN = new OpaqueToken('jQueryß');
+export let JQ_TOKEN = new OpaqueToken('jQuery');
 
-export let JQ_TOKEN = new InjectionToken<String>('jQuery');
+// export let JQ_TOKEN = new InjectionToken<String>('jQuery');
 

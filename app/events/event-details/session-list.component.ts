@@ -2,7 +2,7 @@
  * Created by erupare on 05/07/2017.
  */
 
-import {Component, Input, OnChanges} from '@angular/core'
+import {Component, Input, OnChanges, LOCALE_ID} from '@angular/core'
 import { ISession } from "../shared/index";
 
 
