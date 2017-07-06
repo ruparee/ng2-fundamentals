@@ -4,7 +4,7 @@
 
 import { Component, OnInit } from '@angular/core'
 import { EventService } from '../shared/event.service'
-import { ActivatedRoute } from '@angular/router'
+import {ActivatedRoute, Params} from '@angular/router'
 import { IEvent, ISession } from '../shared/index'
 
 @Component({
@@ -30,8 +30,19 @@ export class EventDetailsComponent  implements OnInit{
 
     ngOnInit() {
 
-        this.event = this.eventService.getEvent(
-            +this.route.snapshot.params['id'])
+        // Better solution using observables which track changes
+        this.route.params.forEach((params:Params) => {
+            this.event = this.eventService.getEvent(+params['id'])
+            this.addMode = false;
+            // Others to reset
+            this.filterBy = 'all';
+            this.sortBy = 'votes';
+        })
+
+
+        // Buggy code
+        // this.event = this.eventService.getEvent(
+        //     +this.route.snapshot.params['id'])
 
         // console.log("id : " + +this.route.snapshot.params['id'])
         // console.log("this.event : " + this.eventService.getEvent(+this.route.snapshot.params['id']))
@@ -48,7 +59,7 @@ export class EventDetailsComponent  implements OnInit{
         session.id = nextId + 1
         this.event.sessions.push(session)
         this.eventService.updateEvent(this.event)
-        this.addMode = false
+        this.addMode = false;
     }
 
     cancelAddSession() {
