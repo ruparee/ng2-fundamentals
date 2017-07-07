@@ -3,6 +3,7 @@
  */
 import {NgModule, LOCALE_ID} from '@angular/core'
 import {BrowserModule} from '@angular/platform-browser'
+import {HttpModule} from '@angular/http'
 import {RouterModule}  from '@angular/router'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 
@@ -44,6 +45,7 @@ declare let jQuery:Object;
     imports: [
         BrowserModule,
         FormsModule,
+        HttpModule,
         ReactiveFormsModule,
         RouterModule.forRoot(appRoutes)
     ],
